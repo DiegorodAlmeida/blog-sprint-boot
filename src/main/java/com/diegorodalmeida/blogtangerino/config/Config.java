@@ -29,13 +29,14 @@ public class Config implements CommandLineRunner{
 		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
 		
 		usuarioRepository.deleteAll();
-		postRepository.deleteAll();
-		
+	
 		Usuario Renan = new Usuario(null, "Renan Almeida", "renan@gmail.com");
 		Usuario Isabella = new Usuario(null, "Isabella Almeida", "isabella@gmail.com");
 		Usuario Celio = new Usuario(null, "Celio Santos", "celio@gmail.com");
 		
 		usuarioRepository.saveAll(Arrays.asList(Renan, Isabella, Celio));
+		
+		postRepository.deleteAll();
 		
 		Post post1 = new Post(null, sdf.parse("24/06/2021"), "Estude programação Diego, é tranquilo", "hahaha", Renan);
 		Post post2 = new Post(null, sdf.parse("25/06/2021"), "Em pouco tempo, vc sera gerente de projetos", "Não desista", Renan);
