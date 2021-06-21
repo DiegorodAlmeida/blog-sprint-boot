@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.info.ProjectInfoProperties.Build;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,6 +41,7 @@ public class UsuarioResource {
 		return ResponseEntity.ok().body(new UsuarioDTO(obj));
 	}
 	
+	//POST//
 	@PostMapping
  	public ResponseEntity<Void> insert(@RequestBody UsuarioDTO objDto) {
 		Usuario obj = service.fromDTO(objDto);
@@ -50,10 +50,19 @@ public class UsuarioResource {
 		return ResponseEntity.created(uri).build();
 	}
 	
+	
 	@RequestMapping(value="/{id}", method=RequestMethod.DELETE)
  	public ResponseEntity<Void> delete(@PathVariable String id) {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
+	}
+	
 
+	@RequestMapping(value="/{id}", method=RequestMethod.PUT)
+ 	public ResponseEntity<Void> update(@RequestBody UsuarioDTO objDto, @PathVariable String id) {
+		Usuario obj = service.fromDTO(objDto);
+		obj.setId(id);
+		obj = service.update(obj);
+		return ResponseEntity.noContent().build();
 	}
 }

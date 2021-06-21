@@ -3,11 +3,9 @@ package com.diegorodalmeida.blogtangerino.repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.diegorodalmeida.blogtangerino.domain.Usuario;
+import com.diegorodalmeida.blogtangerino.domain.Post;
 
 @Repository
-public interface UsuarioRepository extends MongoRepository<Usuario, String> {
-
-	Usuario findOne(String id);
+public interface PostRepository extends MongoRepository<Post, String> {
 
 }
