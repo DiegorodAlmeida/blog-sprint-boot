@@ -6,4 +6,5 @@
 + Comentarios
 + Autor
 + Exclução (delete)
++ DTO (Data transfer Object)
 ## Para mais detalhes, dê uma olhada na documentação online.
