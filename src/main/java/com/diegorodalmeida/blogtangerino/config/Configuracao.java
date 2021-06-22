@@ -14,7 +14,7 @@ import com.diegorodalmeida.blogtangerino.repository.PostRepository;
 import com.diegorodalmeida.blogtangerino.repository.UsuarioRepository;
 
 @Configuration
-public class Config implements CommandLineRunner{
+public class Configuracao implements CommandLineRunner{
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
@@ -33,8 +33,9 @@ public class Config implements CommandLineRunner{
 		Usuario Renan = new Usuario(null, "Renan Almeida", "renan@gmail.com");
 		Usuario Isabella = new Usuario(null, "Isabella Almeida", "isabella@gmail.com");
 		Usuario Celio = new Usuario(null, "Celio Santos", "celio@gmail.com");
+		Usuario Luana = new Usuario(null, "Luana Nery", "luana@gmail.com");
 		
-		usuarioRepository.saveAll(Arrays.asList(Renan, Isabella, Celio));
+		usuarioRepository.saveAll(Arrays.asList(Renan, Isabella, Celio, Luana));
 		
 		postRepository.deleteAll();
 		
